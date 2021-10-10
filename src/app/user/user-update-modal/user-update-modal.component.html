@@ -1,0 +1,36 @@
+<mat-toolbar fxLayoutAlign="flex-end center">
+    <button mat-stroked-button (click)="onClose()"><mat-icon>clear</mat-icon></button>
+  </mat-toolbar>
+  
+  <div class="example-container">
+    <form [formGroup]="userUpdateForm" (ngSubmit)="onUpdateUser()">
+      <div gdcolumns="repeat(4, 1fr)" gdRows="repeat(4, 1fr)" gdRows.lt-md="repeat(6, 1fr)" gdGap="0px 20px">
+        <mat-form-field appearance="fill" gdColumn="1 / span 2" gdRow="1">
+          <mat-label>Id</mat-label>
+          <input matInput formControlName="id">
+        </mat-form-field>
+        <mat-form-field appearance="fill" gdColumn="1 / span 2" gdRow="2">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>        
+        <mat-form-field appearance="fill" gdColumn="1 / span 2" gdRow="3">
+          <mat-label>Role</mat-label>
+          <mat-select formControlName="role">            
+            <mat-option *ngFor="let role of roles; let i = index" [value]="role.key">{{role.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" gdColumn="1 / span 2" gdRow="4">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password">
+        </mat-form-field>
+      </div>
+
+      <mat-toolbar>
+        <mat-toolbar-row fxLayoutAlign="flex-end center" fxLayoutGap="10px">
+          <button type="submit" mat-raised-button [disabled]="userUpdateForm.invalid" *ngIf="isUserAuthenticated"> <mat-icon>update</mat-icon> Update </button>
+          <button type="button" mat-raised-button [disabled]="userUpdateForm.invalid" (click)="onSignInUser()" *ngIf="!isUserAuthenticated"> <mat-icon>update</mat-icon> Sign In </button>
+          <button type="button" mat-raised-button (click)="onClose()"> <mat-icon>close</mat-icon> Close </button>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </form>
+  </div>

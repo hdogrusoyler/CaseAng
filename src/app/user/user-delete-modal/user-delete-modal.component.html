@@ -1,0 +1,15 @@
+<mat-toolbar fxLayoutAlign="space-between center">
+    <h2>SİL</h2>
+    <button mat-stroked-button (click)="onClose()" ><mat-icon>clear</mat-icon></button>
+  </mat-toolbar>
+  
+  <div gdAlignRows="center"><p>{{this.data}} numaralı title silmek istiyor musunuz?</p></div>
+  
+  
+  <mat-toolbar>
+    <mat-toolbar-row fxLayoutAlign="flex-end center" fxLayoutGap="10px">
+      <button mat-raised-button (click)="onDelete()"> <mat-icon>delete</mat-icon> Delete </button>{{'   '}}
+      <button mat-raised-button (click)="onClose()"> <mat-icon>close</mat-icon> Close </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  

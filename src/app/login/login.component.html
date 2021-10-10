@@ -1,0 +1,23 @@
+<div class="example-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <div gdcolumns="repeat(2, 1fr)" gdRows="repeat(2, 1fr)">
+        <mat-form-field appearance="fill" gdColumn="1 / span 2" gdRow="1">
+          <mat-label>User</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="fill" gdColumn="1 / span 2" gdRow="2">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password">
+        </mat-form-field>
+      </div>
+      <mat-toolbar>
+        <mat-toolbar-row fxLayoutAlign="flex-end center" fxLayoutGap="10px">
+          <button type="button" mat-button (click)="onAddTitleModal()">Sign in</button>
+          <!-- <div fxFlex></div> -->
+          <button type="submit" mat-raised-button [disabled]="loginForm.invalid"> <mat-icon>update</mat-icon> Login </button>
+          <button type="button" mat-raised-button [disabled]="!isUserAuthenticated" (click)="onLogout()"> <mat-icon>close</mat-icon> Logout </button>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </form>
+  </div>
+  
